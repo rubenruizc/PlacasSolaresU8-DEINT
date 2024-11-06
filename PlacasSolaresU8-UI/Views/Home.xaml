@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlacasSolaresU8_UI.Views.Home"
+             Title="Home"
+             BackgroundColor="#1A5D9B">
+    <!-- Color azul de fondo -->
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <!-- Título de Citas No Completadas -->
+            <Label Text="Citas No Completadas" TextColor="White" FontAttributes="Bold" FontSize="30" Margin="20, 20,0,0" />
+
+            <!-- Lista de Citas -->
+            <ListView x:Name="listaViewNoCompletadas" Margin="20,0" ItemSelected="OnCitaSelected" HasUnevenRows="True" SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame CornerRadius="20" Padding="15" Margin="10,5" BackgroundColor="White" HasShadow="True">
+                                <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="10">
+                                    <!-- Nombre del Cliente y Ciudad -->
+                                    <VerticalStackLayout Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
+                                        <Label Text="{Binding Cliente.Direccion}" 
+                                               FontSize="16" 
+                                               TextColor="Black" 
+                                               FontAttributes="Bold" />
+                                        <Label Text="{Binding Cliente.Nombre}" 
+                                               FontSize="14" 
+                                               TextColor="Gray" />
+                                    </VerticalStackLayout>
+
+                                    <!-- Mes y Día de la Cita -->
+                                    <VerticalStackLayout Grid.Row="0" Grid.RowSpan="2" Grid.Column="1"
+                                                         HorizontalOptions="End" VerticalOptions="Center">
+                                        <Label Text="{Binding Fecha, StringFormat='{0:MMMM}'}" 
+                                               FontSize="14" TextColor="Black" HorizontalTextAlignment="Center" />
+                                        <Label Text="{Binding Fecha, StringFormat='{0:dd}'}" 
+                                               FontSize="24" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                                    </VerticalStackLayout>
+
+                                    <!-- Hora de la Cita -->
+                                    <Label Grid.Row="2" Grid.Column="0" 
+                                           Text="{Binding Fecha, StringFormat='{0:HH:mm}'}" 
+                                           FontSize="16" TextColor="Black" 
+                                           HorizontalOptions="Start" />
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            <!-- Título de Citas Completadas -->
+            <Label Text="Citas Completadas" TextColor="White" FontAttributes="Bold" FontSize="30" Margin="20, 20,0,0" />
+
+            <!-- Lista de Citas -->
+            <ListView x:Name="listaView" Margin="20,0" ItemSelected="OnCitaSelected" HasUnevenRows="True" SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame CornerRadius="20" Padding="15" Margin="10,5" BackgroundColor="White" HasShadow="True">
+                                <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="10">
+                                    <!-- Nombre del Cliente y Ciudad -->
+                                    <VerticalStackLayout Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
+                                        <Label Text="{Binding Cliente.Direccion}" 
+                                               FontSize="16" 
+                                               TextColor="Black" 
+                                               FontAttributes="Bold" />
+                                        <Label Text="{Binding Cliente.Nombre}" 
+                                               FontSize="14" 
+                                               TextColor="Gray" />
+                                    </VerticalStackLayout>
+
+                                    <!-- Mes y Día de la Cita -->
+                                    <VerticalStackLayout Grid.Row="0" Grid.RowSpan="2" Grid.Column="1"
+                                                         HorizontalOptions="End" VerticalOptions="Center">
+                                        <Label Text="{Binding Fecha, StringFormat='{0:MMMM}'}" 
+                                               FontSize="14" TextColor="Black" HorizontalTextAlignment="Center" />
+                                        <Label Text="{Binding Fecha, StringFormat='{0:dd}'}" 
+                                               FontSize="24" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                                    </VerticalStackLayout>
+
+                                    <!-- Hora de la Cita -->
+                                    <Label Grid.Row="2" Grid.Column="0" 
+                                           Text="{Binding Fecha, StringFormat='{0:HH:mm}'}" 
+                                           FontSize="16" TextColor="Black" 
+                                           HorizontalOptions="Start" />
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
