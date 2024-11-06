@@ -20,7 +20,6 @@ public partial class Login : ContentPage
 
         if (username == "ruben" && password == "1234")
         {
-            await DisplayAlert("Éxito", "Inicio de sesión exitoso", "OK");
             
             await Navigation.PushAsync(new Home());
         }
