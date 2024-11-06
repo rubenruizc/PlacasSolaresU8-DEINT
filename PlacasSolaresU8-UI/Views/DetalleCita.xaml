@@ -12,7 +12,7 @@
             <Frame BackgroundColor="#ECEFF1" CornerRadius="20" Padding="10">
                 <Grid ColumnDefinitions="Auto,*,Auto" VerticalOptions="Center">
 
-                    <!-- Imagen de ubicación -->
+                    <!-- Imagen de la persona -->
                     <Image Source="sabaly.png" 
                            Aspect="AspectFit" 
                            HeightRequest="80" 
